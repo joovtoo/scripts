@@ -1,5 +1,7 @@
 R1
 
+enable
+configure terminal
 interface serial 0/0/0
 ip address 201.187.89.1 255.255.255.252
 no shutdown
@@ -16,6 +18,8 @@ do wr
 
 R2
 
+enable
+configure terminal
 interface serial 0/0/0
 ip address 201.187.89.9 255.255.255.252
 no shutdown
@@ -32,6 +36,8 @@ do wr
 
 R3
 
+enable
+configure terminal
 interface serial 0/0/0
 ip address 201.187.89.9 255.255.255.252
 no shutdown
@@ -48,6 +54,8 @@ do wr
 
 R4
 
+enable
+configure terminal
 interface serial 0/0/0
 ip address 201.187.89.31 255.255.255.252
 no shutdown
