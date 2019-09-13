@@ -1,0 +1,63 @@
+R1
+
+interface serial 0/0/0
+ip address 201.187.89.1 255.255.255.252
+no shutdown
+exit
+interface serial 0/0/1
+ip address 201.187.89.21 255.255.255.252
+no shutdown
+exit
+interface serial 0/1/1
+ip address 201.187.89.31 255.255.255.252
+no shutdown
+exit
+do wr
+
+R2
+
+interface serial 0/0/0
+ip address 201.187.89.9 255.255.255.252
+no shutdown
+exit
+interface serial 0/0/1
+ip address 201.187.89.17 255.255.255.252
+no shutdown
+exit
+interface serial 0/1/1
+ip address 201.187.89.31 255.255.255.252
+no shutdown
+exit
+do wr
+
+R3
+
+interface serial 0/0/0
+ip address 201.187.89.9 255.255.255.252
+no shutdown
+exit
+interface serial 0/0/1
+ip address 201.187.89.13 255.255.255.252
+no shutdown
+exit
+interface serial 0/1/1
+ip address 201.187.89.21 255.255.255.252
+no shutdown
+exit
+do wr
+
+R4
+
+interface serial 0/0/0
+ip address 201.187.89.31 255.255.255.252
+no shutdown
+exit
+interface serial 0/0/1
+ip address 201.187.89.13 255.255.255.252
+no shutdown
+exit
+interface serial 0/1/1
+ip address 201.187.89.1 255.255.255.252
+no shutdown
+exit
+do wr
