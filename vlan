@@ -1,0 +1,71 @@
+S1
+
+enable
+configure terminal 
+interface vlan 10
+name TESTES
+exit
+interface vlan 20
+name TELEMARKETING
+exit
+interface vlan 30
+name CONSULTORES
+exit
+interface vlan 40
+name RH
+exit
+do wr
+
+S2
+
+enable
+configure terminal 
+interface vlan 50
+name ANALISTAS
+exit
+interface vlan 60
+name OPERACAO
+exit
+interface vlan 70
+name TI
+exit
+interface vlan 80
+name ADMINISTRATIVO
+exit
+do wr
+
+S3
+
+enable
+configure terminal 
+interface vlan 80
+name FINANCAS
+exit
+interface vlan 60
+name OPERACOES
+exit
+interface vlan 88
+name RELOGIOS
+exit
+interface vlan 100
+name LIVRE
+exit
+do wr
+
+S4
+
+enable
+configure terminal 
+interface vlan 88
+name SERVIDORES
+exit
+interface vlan 200
+name VOZ
+exit
+interface vlan 90
+name TACACS
+exit
+interface vlan 88
+name MONITORAMENTO
+exit
+do wr
