@@ -1,0 +1,113 @@
+enable
+configure terminal
+hostname S1
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhaEnable
+ip domain-name peachanddaisy.local
+crypto key generate rsa general-keys modulus 1024
+username joaoabreu privilege 15 secret Batata
+username estagiario privilege 1 secret senha
+line console 0
+password SenhadaConsole
+login
+exit
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login local
+interface vlan 1
+ip address 192.168.0.254 255.255.224.0
+description INTERFACE DE GERENCIAMENTO
+no shutdown
+exit
+ip default-gateway 192.168.0.1
+do wr
+
+S2
+
+enable
+configure terminal
+hostname S2
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhaEnable
+ip domain-name peachanddaisy.local
+crypto key generate rsa general-keys modulus 1024
+username joaoabreu privilege 15 secret Batata
+username estagiario privilege 1 secret senha
+line console 0
+password SenhadaConsole
+login
+exit
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login local
+interface vlan 1
+ip address 10.0.0.254 255.0.0.0
+description INTERFACE DE GERENCIAMENTO
+no shutdown
+exit
+ip default-gateway 10.0.0.1
+do wr
+
+S3
+
+enable
+configure terminal
+hostname S3
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhaEnable
+ip domain-name peachanddaisy.local
+crypto key generate rsa general-keys modulus 1024
+username joaoabreu privilege 15 secret Batata
+username estagiario privilege 1 secret senha
+line console 0
+password SenhadaConsole
+login
+exit
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login local
+interface vlan 1
+ip address 192.168.32.254 255.255.248.0
+description INTERFACE DE GERENCIAMENTO
+no shutdown
+exit
+ip default-gateway 192.168.32.1
+do wr
+
+S4
+
+enable
+configure terminal
+hostname S4
+banner motd "ACESSO AUTORIZADO APENAS PARA O DEPARTAMENTO DE TI!"
+enable secret SenhaEnable
+ip domain-name peachanddaisy.local
+crypto key generate rsa general-keys modulus 1024
+username joaoabreu privilege 15 secret Batata
+username estagiario privilege 1 secret senha
+line console 0
+password SenhadaConsole
+login
+exit
+service password-encryption
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login local
+interface vlan 1
+ip address 172.16.0.254 255.255.248.0
+description INTERFACE DE GERENCIAMENTO
+no shutdown
+exit
+ip default-gateway 172.16.0.1
+do wr
