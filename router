@@ -1,0 +1,117 @@
+enable
+configure terminal
+hostname R1
+banner motd "APENAS PESSOAS AUTORIZADAS"
+enable secret SenhaEnable
+ip domain-name peachanddaisy.local
+crypto key generate rsa general-keys modulus 1024
+interface gigabitEthernet 0/1 
+ip address 192.168.0.1 255.255.224.0
+description REDE R1
+no shutdown
+exit
+line console 0
+password SenhadaConsole
+login
+exit
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login
+exit
+username joaoabreu privilege 15 secret Batata
+username estagiario privilege 1 secret senha
+login block-for 60 attempts 3 within 60
+service password-encryption
+do wr
+
+R2
+
+enable
+configure terminal
+hostname R2
+banner motd "APENAS PESSOAS AUTORIZADAS"
+enable secret SenhaEnable
+ip domain-name peachanddaisy.local
+crypto key generate rsa general-keys modulus 1024
+interface gigabitEthernet 0/1 
+ip address 10.0.0.1 255.0.0.0
+description REDE R2
+no shutdown
+exit
+line console 0
+password SenhadaConsole
+login
+exit
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login
+exit
+username joaoabreu privilege 15 secret Batata
+username estagiario privilege 1 secret senha
+login block-for 60 attempts 3 within 60
+service password-encryption
+do wr
+
+R3
+
+enable
+configure terminal
+hostname R3
+banner motd "APENAS PESSOAS AUTORIZADAS"
+enable secret SenhaEnable
+ip domain-name peachanddaisy.local
+crypto key generate rsa general-keys modulus 1024
+interface gigabitEthernet 0/1 
+ip address 192.168.32.1 255.255.248.0
+description REDE R3
+no shutdown
+exit
+line console 0
+password SenhadaConsole
+login
+exit
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login
+exit
+username joaoabreu privilege 15 secret Batata
+username estagiario privilege 1 secret senha
+login block-for 60 attempts 3 within 60
+service password-encryption
+do wr
+
+R4
+
+enable
+configure terminal
+hostname R4
+banner motd "APENAS PESSOAS AUTORIZADAS"
+enable secret SenhaEnable
+ip domain-name peachanddaisy.local
+crypto key generate rsa general-keys modulus 1024
+interface gigabitEthernet 0/1 
+ip address 172.16.0.1 255.240.0.0
+description REDE R4
+no shutdown
+exit
+line console 0
+password SenhadaConsole
+login
+exit
+line vty 0 15
+password SenhadaVTY
+transport input ssh
+exec-timeout 10
+login
+exit
+username joaoabreu privilege 15 secret Batata
+username estagiario privilege 1 secret senha
+login block-for 60 attempts 3 within 60
+service password-encryption
+do wr
