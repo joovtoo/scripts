@@ -1,0 +1,234 @@
+enable
+configure terminal
+hostname SW-01
+banner motd "AUTORIZADO APENAS A FUNCIONARIOS"
+enable secret SenhaEnable
+line console 0
+password SenhaConsole
+login
+exit
+Username administrador privilege 15 secret SenhaAdimin
+username estagiario privilege 1 secret SenhaEst
+line vty 0 15
+transport input ssh
+exec-timeout 5
+login local
+exit
+service password-encryption
+vlan 10
+name TESTES
+EXIT
+VLAN 20
+name TELEMARKETING
+EXIT
+VLAN 30
+NAME CONSULTORES
+EXIT
+VLAN 40
+NAME RH
+EXIT
+interface fastethernet0/1
+switchport mode access
+switch access vlan 10
+interface fastethernet0/10
+switchport mode access
+switch access vlan 20
+interface fastethernet0/18
+switchport mode access
+switchport access vlan 30
+interface fastethernet0/23
+switchport mode access 
+switchport access vlan 40
+interface vlan 1
+ip address 192.168.31.254 255.255.224.0
+description REDE 1
+no shutdown
+exit
+ip default-gateway 192.168.0.1
+interface fastethernet0/5
+switchport mode trunk
+switchport trunk native vlan 88
+switchport trunk allowed vlan 10
+switchport trunk allowed vlan add 20
+switchport trunk allowed vlan add 30
+switchport trunk allowed vlan add 40
+exit
+do wr
+
+S2
+
+enable
+configure terminal
+hostname SW-02
+banner motd "AUTORIZADO APENAS A FUNCIONARIOS"
+enable secret SenhaEnable
+line console 0
+password SenhaConsole
+login
+exit
+Username administrador privilege 15 secret SenhaAdimin
+username estagiario privilege 1 secret SenhaEst
+line vty 0 15
+transport input ssh
+exec-timeout 5
+login local
+exit
+service password-encryption
+vlan 50
+name ANALISTAS
+EXIT
+VLAN 60
+name OPERACAO
+EXIT
+VLAN 70
+NAME TI
+EXIT
+VLAN 80
+NAME ADMINISTRATIVO
+EXIT
+interface fastethernet0/1
+switchport mode access
+switch access vlan 50
+interface fastethernet0/24
+switchport mode access
+switch access vlan 60
+interface fastethernet0/21
+switchport mode access
+switchport access vlan 70
+interface fastethernet0/22
+switchport mode access 
+switchport access vlan 80
+interface vlan 1
+ip address 10.255.255.254 255.0.0.0
+description REDE 2
+no shutdown
+exit
+ip default-gateway 10.0.0.1
+interface fastethernet0/10
+switchport mode trunk
+switchport trunk native vlan 88
+switchport trunk allowed vlan 50
+switchport trunk allowed vlan add 60
+switchport trunk allowed vlan add 70
+switchport trunk allowed vlan add 80
+exit
+do wr
+
+S3
+
+enable
+configure terminal
+hostname SW-03
+banner motd "AUTORIZADO APENAS A FUNCIONARIOS"
+enable secret SenhaEnable
+line console 0
+password SenhaConsole
+login
+exit
+Username administrador privilege 15 secret SenhaAdimin
+username estagiario privilege 1 secret SenhaEst
+line vty 0 15
+transport input ssh
+exec-timeout 5
+login local
+exit
+service password-encryption
+vlan 80
+name FINANCIAS
+EXIT
+VLAN 60
+name OPERACOES
+EXIT
+VLAN 88
+NAME RELOGIOS
+EXIT
+VLAN 100
+NAME LIVRE
+EXIT
+interface fastethernet0/1
+switchport mode access
+switch access vlan 80
+interface fastethernet0/6
+switchport mode access
+switch access vlan 60
+interface fastethernet0/10
+switchport mode access
+switchport access vlan 88
+interface fastethernet0/20
+switchport mode access 
+switchport access vlan 100
+interface vlan 1
+ip address 192.168.248.254 255.255.248.0
+description REDE 3
+no shutdown
+exit
+ip default-gateway 192.168.32.1
+interface fastethernet0/15
+switchport mode trunk
+switchport trunk native vlan 88
+switchport trunk allowed vlan 80
+switchport trunk allowed vlan add 60
+switchport trunk allowed vlan add 88
+switchport trunk allowed vlan add 100
+exit
+do wr
+
+S4
+
+enable
+configure terminal
+hostname SW-04
+banner motd " APENAS ACESSE SE FOR AUTORIZADO "
+enable secret SenhaEnable
+line console 0
+password SenhaConsole
+login
+exit
+Username administrador privilege 15 secret SenhaAdimin
+username estagiario privilege 1 secret SenhaEst
+line vty 0 15
+transport input ssh
+exec-timeout 5
+login local
+exit
+service password-encryption
+vlan 88
+name SERVIDORES
+EXIT
+VLAN 200
+name VOZ
+EXIT
+VLAN 90
+NAME TACAS
+EXIT
+VLAN 88
+NAME MONITORAMENTO
+EXIT
+interface fastethernet0/1
+switchport mode access
+switch access vlan 88
+interface fastethernet0/10
+switchport mode access
+switch access vlan 200
+interface fastethernet0/13
+switchport mode access
+switchport access vlan 90
+interface fastethernet0/15
+switchport mode access 
+switchport access vlan 88
+interface vlan 1
+ip address 172.240.255.254 255.240.0.0
+description REDE 4
+no shutdown
+exit
+ip default-gateway 172.16.0.1
+interface fastethernet0/20
+switchport mode trunk
+switchport trunk native vlan 88
+switchport trunk allowed vlan 88
+switchport trunk allowed vlan add 200
+switchport trunk allowed vlan add 90
+switchport trunk allowed vlan add 88
+exit
+hostname SW-04
+do wr
